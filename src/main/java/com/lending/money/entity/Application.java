@@ -24,6 +24,8 @@ public class Application {
     private String aaNum;
     private String appNumber;
     private String branch;
+    private String systemDecision;
+    private LocalDate appCreatedDate;
 
     @Enumerated(EnumType.STRING)
     private ApplicationStatus appStatus;
@@ -34,14 +36,10 @@ public class Application {
     @Enumerated(EnumType.STRING)
     private TemplateType templateType;
 
-    private String systemDecision;
-    private LocalDate appCreatedDate;
-
     @OneToMany(mappedBy = "application", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ApplicationFacility> applicationFacilities;
 
-    @ManyToOne
-    @JoinColumn(name = "fk_bor_id", referencedColumnName = "borId")
-    private Borrower borrower;
+    @OneToMany(mappedBy = "application", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Borrower> borrowers;
 
 }

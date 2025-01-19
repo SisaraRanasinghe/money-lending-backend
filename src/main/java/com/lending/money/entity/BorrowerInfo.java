@@ -17,10 +17,6 @@ public class BorrowerInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer borInfoId;
 
-    @OneToOne
-    @JoinColumn(name = "fk_bor_id", referencedColumnName = "borId", nullable = false)
-    private Borrower borrower;
-
     private String borName;
     private String borAddress;
     private Long borPhone;
@@ -30,5 +26,10 @@ public class BorrowerInfo {
     @Enumerated(EnumType.STRING)
     private BorrowerGender borGender;
 
+    @Enumerated(EnumType.STRING)
     private BorrowerTitle borTitle;
+
+    @OneToOne
+    @JoinColumn(name = "fk_bor_id", referencedColumnName = "borId", nullable = false)
+    private Borrower borrower;
 }

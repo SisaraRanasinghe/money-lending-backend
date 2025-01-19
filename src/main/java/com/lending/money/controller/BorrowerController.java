@@ -20,7 +20,11 @@ public class BorrowerController {
 
     @PostMapping("/add")
     public ResponseEntity<BorrowerResponse> addBorrower(@RequestBody Borrower borrower) {
-        BorrowerResponse addBorrower = borrowerService.addBorrower(borrower);
-        return new ResponseEntity<>(addBorrower, HttpStatus.CREATED);
+        if (borrower != null) {
+            BorrowerResponse addBorrower = borrowerService.addBorrower(borrower);
+            return new ResponseEntity<>(addBorrower, HttpStatus.CREATED);
+        }
+        throw new NullPointerException("ABCD!!!!!!!!!!!!!!!!!!!");
+
     }
 }

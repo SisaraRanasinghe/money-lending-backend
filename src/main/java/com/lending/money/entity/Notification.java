@@ -21,10 +21,9 @@ public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ntfId;
-
-    @ManyToOne
-    @JoinColumn(name = "fk_app_id", nullable = false)
-    private Application application;
+    private String emailTemplateCode;
+    private String emailTemplateCdeDesc;
+    private LocalDate ntfCreatedDate;
 
     @Enumerated(EnumType.STRING)
     private NotificationStatus ntfStatus;
@@ -32,8 +31,7 @@ public class Notification {
     @Enumerated(EnumType.STRING)
     private NotificationType ntfType;
 
-    private String emailTemplateCode;
-    private String emailTemplateCdeDesc;
-    private LocalDate ntfCreatedDate;
-
+    @ManyToOne
+    @JoinColumn(name = "fk_app_id", nullable = false)
+    private Application application;
 }

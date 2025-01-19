@@ -19,11 +19,12 @@ public class Borrower {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer borId;
 
-    @OneToMany(mappedBy = "borrower", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Application> applications;
-
     private String CIF;
 
     @Enumerated(EnumType.STRING)
     private BorrowerType borType;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_app_id", referencedColumnName = "appId")
+    private Application application;
 }

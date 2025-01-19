@@ -17,11 +17,6 @@ public class NotificationHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ntfHisId;
-
-    @ManyToOne
-    @JoinColumn(name = "fk_ntf_id", nullable = false)
-    private Notification notification;
-
     private String emailContent;
     private String smsContent;
     private String toEmail;
@@ -29,4 +24,8 @@ public class NotificationHistory {
     private String ccEmail;
     private String toSms;
     private LocalDate sentDate;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_ntf_id", nullable = false)
+    private Notification notification;
 }

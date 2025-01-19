@@ -18,11 +18,10 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer accId;
     private String accNum;
-
-    @Enumerated(EnumType.STRING)
-    private AccountType accType;
-
     private LocalDate accCreatedDate;
     private String createdUser;
     private Boolean accStatus;
+
+    @Enumerated(EnumType.STRING)
+    private AccountType accType;
 }
