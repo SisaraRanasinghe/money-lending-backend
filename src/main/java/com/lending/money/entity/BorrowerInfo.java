@@ -30,6 +30,6 @@ public class BorrowerInfo {
     private BorrowerTitle borTitle;
 
     @OneToOne
-    @JoinColumn(name = "fk_bor_id", referencedColumnName = "borId", nullable = false)
+    @JoinColumn(name = "fk_bor_id", referencedColumnName = "borId")
     private Borrower borrower;
 }

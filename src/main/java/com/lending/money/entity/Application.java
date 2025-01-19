@@ -10,7 +10,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Data
@@ -36,10 +35,10 @@ public class Application {
     @Enumerated(EnumType.STRING)
     private TemplateType templateType;
 
-    @OneToMany(mappedBy = "application", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ApplicationFacility> applicationFacilities;
-
-    @OneToMany(mappedBy = "application", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Borrower> borrowers;
+//    @OneToMany(mappedBy = "application", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<ApplicationFacility> applicationFacilities;
+//
+//    @OneToMany(mappedBy = "application", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Borrower> borrowers;
 
 }

@@ -1,8 +1,7 @@
 package com.lending.money.controller;
 
-import com.lending.money.entity.Borrower;
-import com.lending.money.response.BorrowerResponse;
-import com.lending.money.service.BorrowerService;
+import com.lending.money.entity.BorrowerInfo;
+import com.lending.money.service.BorrowerInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,15 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/v1")
-public class BorrowerController {
+public class BorrowerInfoController {
 
     @Autowired
-    private BorrowerService borrowerService;
+    private BorrowerInfoService borrowerInfoService;
 
-    @PostMapping("/createBorrower")
-    public ResponseEntity<BorrowerResponse> addBorrower(@RequestBody Borrower borrower) {
+    @PostMapping("/createBorrowerInfo")
+    public ResponseEntity<BorrowerInfo> addBorrowerInfo(@RequestBody BorrowerInfo borrowerInfo) {
 
-        BorrowerResponse addBorrower = borrowerService.addBorrower(borrower);
-        return new ResponseEntity<>(addBorrower, HttpStatus.CREATED);
+        BorrowerInfo addBorrowerInfo = borrowerInfoService.addBorrowerInfo(borrowerInfo);
+        return new ResponseEntity<>(addBorrowerInfo, HttpStatus.CREATED);
     }
 }

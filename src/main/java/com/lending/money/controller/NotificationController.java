@@ -1,8 +1,7 @@
 package com.lending.money.controller;
 
-import com.lending.money.entity.Borrower;
-import com.lending.money.response.BorrowerResponse;
-import com.lending.money.service.BorrowerService;
+import com.lending.money.entity.Notification;
+import com.lending.money.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,15 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/v1")
-public class BorrowerController {
+public class NotificationController {
 
     @Autowired
-    private BorrowerService borrowerService;
+    private NotificationService notificationService;
 
-    @PostMapping("/createBorrower")
-    public ResponseEntity<BorrowerResponse> addBorrower(@RequestBody Borrower borrower) {
+    @PostMapping("/createNotification")
+    public ResponseEntity<Notification> addNotification(@RequestBody Notification notification) {
 
-        BorrowerResponse addBorrower = borrowerService.addBorrower(borrower);
-        return new ResponseEntity<>(addBorrower, HttpStatus.CREATED);
+        Notification addNotification = notificationService.addNotification(notification);
+        return new ResponseEntity<>(addNotification, HttpStatus.CREATED);
     }
 }
